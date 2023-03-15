@@ -1,0 +1,145 @@
+/* 
+  -----------------------------------------------------------------------------
+    GLOBAL
+  -----------------------------------------------------------------------------
+*/
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&family=Raleway:wght@400;700&display=swap");
+
+:root {
+  --global-leftright-padding: 4%;
+
+  --font-size-xl: 2.4rem;
+  --font-size-l: 1.8rem;
+  --font-size-m: 1.3rem;
+
+  --font-weight-medium: 400;
+  --font-weight-bold: 700;
+
+  --color-white: #f4f4f2;
+  --color-blue: #1a5bb7;
+  --color-very-dark-blue: #19222e;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Raleway", "Segoe UI", sans-serif;
+  overflow-x: hidden;
+  background-color: var(--color-blue);
+}
+
+/* 
+  -----------------------------------------------------------------------------
+    HEADER
+  -----------------------------------------------------------------------------
+*/
+header {
+  padding: 5rem var(--global-leftright-padding);
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--color-very-dark-blue);
+}
+
+/* 
+  -----------------------------------------------------------------------------
+    FORM
+  -----------------------------------------------------------------------------
+*/
+.user-form {
+  padding: 3rem var(--global-leftright-padding);
+  padding-bottom: 5rem;
+  margin-top: -3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-size-m);
+  border-radius: 45px 45px 0px 0px;
+  background: var(--color-blue);
+  color: var(--color-very-dark-blue);
+}
+
+.user-form > div {
+  width: clamp(350px, 50vw, 600px);
+  padding: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border-radius: 15px;
+  background-color: var(--color-white);
+}
+
+.user-form > div > span {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xl);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+form > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+
+form > div > label {
+  width: 100%;
+  font-weight: var(--font-weight-medium);
+}
+
+form > div > input {
+  width: clamp(320px, 45vw, 470px);
+  padding: 0.7rem 1.3rem;
+  font-size: var(--font-size-body);
+  font-family: "Quicksand", "Segoe UI", sans-serif;
+  border: 1px solid var(--color-very-dark-blue);
+  border-radius: 50px;
+}
+
+form > .form-button {
+  width: 100%;
+}
+
+form > .form-button button {
+  width: 100%;
+  padding: 1rem 2rem;
+  font-size: var(--font-size-m);
+  border-radius: 15px;
+  border-color: transparent;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  background-color: var(--color-very-dark-blue);
+  color: var(--color-white);
+}
+
+/* 
+  -----------------------------------------------------------------------------
+    SIGN UP
+  -----------------------------------------------------------------------------
+*/
+.sign-up {
+  text-align: center;
+}
+
+.sign-up a {
+  text-decoration: none;
+}
