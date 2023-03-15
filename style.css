@@ -115,6 +115,10 @@ form > div > input {
   border-radius: 50px;
 }
 
+form > div > input:focus {
+  outline: 0;
+}
+
 form > .form-button {
   width: 100%;
 }
@@ -129,6 +133,12 @@ form > .form-button button {
   cursor: pointer;
   background-color: var(--color-very-dark-blue);
   color: var(--color-white);
+}
+
+.error {
+  width: 100%;
+  font-size: var(--font-size-body);
+  color: red;
 }
 
 /* 
