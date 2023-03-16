@@ -1,16 +1,23 @@
 import { form, email, password } from "/js/variables.js";
-import { setError, setSuccess, validateEmail } from "/js/functions.js";
+import {
+  setError,
+  setSuccess,
+  validateEmail,
+  changeInputBackgroundVisual,
+} from "/js/functions.js";
 
 let emailValid = false;
 let passwordValid = false;
 
-const displayInputError = () => {
+const displaySubmitError = () => {
   if (!emailValid) {
     setError("display-email", "Invalid Email");
+    changeInputBackgroundVisual(email, emailValid);
   }
 
   if (!passwordValid) {
     setError("display-password", "Invalid Password");
+    changeInputBackgroundVisual(password, passwordValid);
   }
 };
 
@@ -20,12 +27,15 @@ email.addEventListener("input", () => {
   if (value === "") {
     setError("display-email", "Email is required");
     emailValid = false;
+    changeInputBackgroundVisual(email, emailValid);
   } else if (!validateEmail(value)) {
     setError("display-email", "Invalid Email");
     emailValid = false;
+    changeInputBackgroundVisual(email, emailValid);
   } else {
     setSuccess("display-email");
     emailValid = true;
+    changeInputBackgroundVisual(email, emailValid);
   }
 });
 
@@ -35,19 +45,35 @@ password.addEventListener("input", () => {
   if (value === "") {
     setError("display-password", "Password is required");
     passwordValid = false;
+    changeInputBackgroundVisual(password, passwordValid);
   } else {
     setSuccess("display-password");
     passwordValid = true;
+    changeInputBackgroundVisual(password, passwordValid);
   }
 });
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  const userData = JSON.parse(localStorage.getItem(`user-${email.value}`));
+
   if (emailValid && passwordValid) {
-    alert("Form Filled Successfully");
+    if (userData === null) {
+      setError("display-signin", "Invalid account");
+    } else {
+      if (
+        email.value === userData.email &&
+        password.value === userData.password
+      ) {
+        setSuccess("display-signin");
+        alert("Log In Successful");
+        window.location.href = "/homepage/index.html";
+      } else {
+        setError("display-signin", "Incorrect email / password");
+      }
+    }
   } else {
-    displayInputError();
-    alert("Form Not Valid");
+    displaySubmitError();
   }
 });

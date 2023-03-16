@@ -1,6 +1,7 @@
 const form = document.getElementById("form");
+const username = document.getElementById("username");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const confirmPassword = document.getElementById("confirmPassword");
 
-export { form, email, password, confirmPassword };
+export { form, username, email, password, confirmPassword };

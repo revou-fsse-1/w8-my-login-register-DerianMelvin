@@ -135,21 +135,29 @@ form > .form-button button {
   color: var(--color-white);
 }
 
-.error {
+.display-text {
   width: 100%;
   font-size: var(--font-size-body);
+}
+
+.error {
   color: red;
+}
+
+.success {
+  color: green;
+}
+
+.text-center {
+  text-align: center;
 }
 
 /* 
   -----------------------------------------------------------------------------
-    SIGN UP
+    OPTIONAL LINK
   -----------------------------------------------------------------------------
 */
-.sign-up {
-  text-align: center;
-}
 
-.sign-up a {
+.text-center a {
   text-decoration: none;
 }

@@ -23,4 +23,12 @@ const validateEmail = (email) => {
   return reg.test(emailValue);
 };
 
-export { setError, setSuccess, validateEmail };
+const changeInputBackgroundVisual = (element, isValid) => {
+  if (!isValid) {
+    element.style.boxShadow = "0px 0px 8px 1px rgb(255, 99, 99)";
+  } else {
+    element.style.boxShadow = "none";
+  }
+};
+
+export { setError, setSuccess, validateEmail, changeInputBackgroundVisual };

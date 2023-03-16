@@ -26,6 +26,17 @@
         <span>Sign Up</span>
 
         <form id="form" action="#">
+          <div class="form-username">
+            <label for="username">Username</label>
+            <input
+              id="username"
+              type="text"
+              name="username"
+              placeholder="Budi"
+            />
+            <p id="display-username" class="display-text error"></p>
+          </div>
+
           <div class="form-email">
             <label for="email">E-mail</label>
             <input
@@ -34,7 +45,7 @@
               name="email"
               placeholder="myemail@gmail.com"
             />
-            <p id="display-email" class="error"></p>
+            <p id="display-email" class="display-text error"></p>
           </div>
 
           <div class="form-password">
@@ -45,7 +56,7 @@
               name="password"
               placeholder="********"
             />
-            <p id="display-password" class="error"></p>
+            <p id="display-password" class="display-text error"></p>
           </div>
 
           <div class="form-password">
@@ -56,7 +67,7 @@
               name="confirmPassword"
               placeholder="********"
             />
-            <p id="display-confirmPassword" class="error"></p>
+            <p id="display-confirmPassword" class="display-text error"></p>
           </div>
 
           <div class="form-button">
@@ -64,7 +75,7 @@
           </div>
         </form>
 
-        <div class="sign-up">
+        <div class="text-center">
           <p>Already have an account?</p>
           <a href="/index.html">Sign In</a>
         </div>
