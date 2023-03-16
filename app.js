@@ -60,12 +60,13 @@ form.addEventListener("submit", (e) => {
 
   if (emailValid && passwordValid) {
     if (userData === null) {
-      setError("display-signin", "Invalid account");
+      setError("display-signin", "Account doesn't exist");
     } else {
       if (
         email.value === userData.email &&
         password.value === userData.password
       ) {
+        localStorage.setItem("currentUser", JSON.stringify(userData));
         setSuccess("display-signin");
         alert("Log In Successful");
         window.location.href = "/homepage/index.html";
