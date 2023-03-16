@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicon-32.png"
+    />
+
+    <link rel="stylesheet" href="/style.css" />
+
+    <title>RONDO | Homepage</title>
+  </head>
+  <body>
+    <header class="homepage-header">
+      <img class="logo" src="/assets/logo.png" alt="rondo logo" />
+      <p id="header-welcome"></p>
+    </header>
+
+    <section class="homepage-register">
+      <div>
+        <span>Register Data</span>
+
+        <form id="form" class="register-form" action="#">
+          <div class="form-username">
+            <label for="username">Username</label>
+            <input
+              id="username"
+              type="text"
+              name="username"
+              placeholder="Budi"
+            />
+            <p id="display-username" class="display-text error"></p>
+          </div>
+
+          <div class="form-email">
+            <label for="email">E-mail</label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              placeholder="myemail@gmail.com"
+            />
+            <p id="display-email" class="display-text error"></p>
+          </div>
+
+          <div class="form-button">
+            <button type="submit">Register</button>
+          </div>
+        </form>
+
+        <div>
+          <p id="display-register" class=""></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="homepage-table">
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Manage</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <script defer type="module" src="/homepage/homepage.js"></script>
+  </body>
+</html>

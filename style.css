@@ -49,6 +49,7 @@ header {
   align-items: center;
   justify-content: center;
   width: 100%;
+  color: var(--color-white);
   background-color: var(--color-very-dark-blue);
 }
 
@@ -87,26 +88,26 @@ header {
   font-size: var(--font-size-xl);
 }
 
-form {
+.user-form form {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
 }
 
-form > div {
+.user-form form > div {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 7px;
 }
 
-form > div > label {
+.user-form form > div > label {
   width: 100%;
   font-weight: var(--font-weight-medium);
 }
 
-form > div > input {
+.user-form form > div > input {
   width: clamp(320px, 45vw, 470px);
   padding: 0.7rem 1.3rem;
   font-size: var(--font-size-body);
@@ -115,15 +116,15 @@ form > div > input {
   border-radius: 50px;
 }
 
-form > div > input:focus {
+.user-form form > div > input:focus {
   outline: 0;
 }
 
-form > .form-button {
+.user-form form > .form-button {
   width: 100%;
 }
 
-form > .form-button button {
+.user-form form > .form-button button {
   width: 100%;
   padding: 1rem 2rem;
   font-size: var(--font-size-m);
@@ -160,4 +161,152 @@ form > .form-button button {
 
 .text-center a {
   text-decoration: none;
+}
+
+/* 
+  -----------------------------------------------------------------------------
+    HOMEPAGE - HEADER
+  -----------------------------------------------------------------------------
+*/
+
+.homepage-header {
+  flex-direction: column;
+  gap: 30px;
+}
+
+.homepage-header p {
+  font-size: var(--font-size-l);
+}
+
+/* 
+  -----------------------------------------------------------------------------
+    HOMEPAGE - REGISTER
+  -----------------------------------------------------------------------------
+*/
+.homepage-register {
+  padding: 3rem var(--global-leftright-padding);
+  padding-bottom: 5rem;
+  margin-top: -3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: var(--font-size-m);
+  border-radius: 45px 45px 0px 0px;
+  background: var(--color-blue);
+  color: var(--color-very-dark-blue);
+}
+
+.homepage-register > div {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 15px;
+  background-color: var(--color-white);
+}
+
+.homepage-register > div > span {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-l);
+}
+
+.homepage-register form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.homepage-register form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.homepage-register form > div > label {
+  font-weight: var(--font-weight-medium);
+}
+
+.homepage-register form > div > input {
+  /* width: clamp(320px, 45vw, 470px); */
+  padding: 0.7rem 1.3rem;
+  font-size: var(--font-size-body);
+  font-family: "Quicksand", "Segoe UI", sans-serif;
+  border: 1px solid var(--color-very-dark-blue);
+  border-radius: 50px;
+}
+
+.homepage-register form > div > input:focus {
+  outline: 0;
+}
+
+.homepage-register form > .form-button {
+  width: fit-content;
+}
+
+.homepage-register form > .form-button button {
+  width: 100%;
+  padding: 1rem 2rem;
+  font-size: var(--font-size-m);
+  border-radius: 15px;
+  border-color: transparent;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  background-color: var(--color-very-dark-blue);
+  color: var(--color-white);
+}
+
+/* 
+  -----------------------------------------------------------------------------
+    HOMEPAGE - TABLE
+  -----------------------------------------------------------------------------
+*/
+
+.homepage-table {
+  padding: 3rem var(--global-leftright-padding);
+  font-size: var(--font-size-m);
+  color: var(--color-very-dark-blue);
+}
+
+.homepage-table > div {
+  padding: 3rem;
+  border-radius: 15px;
+  background-color: var(--color-white);
+}
+
+.homepage-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.homepage-table table tr:nth-child(even) {
+  background-color: #c0c0c0;
+}
+
+.homepage-table table td,
+.homepage-table table th {
+  border: 1px solid var(--color-very-dark-blue);
+  padding: 1rem;
+}
+
+.homepage-table table th {
+  text-align: left;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+}
+
+.homepage-table button {
+  padding: 0.7rem 1.5rem;
+  font-size: var(--font-size-body);
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: var(--color-white);
+}
+
+.edit {
+  background-color: var(--color-very-dark-blue);
+}
+
+.delete {
+  background-color: rgb(221, 4, 4);
 }
