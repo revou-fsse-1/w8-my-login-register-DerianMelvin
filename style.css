@@ -170,12 +170,32 @@ header {
 */
 
 .homepage-header {
-  flex-direction: column;
+  justify-content: space-between;
   gap: 30px;
 }
 
-.homepage-header p {
+.homepage-header > p {
   font-size: var(--font-size-l);
+}
+
+.homepage-header > a {
+  padding: 0.9rem 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  border-radius: 50px;
+  color: var(--color-very-dark-blue);
+  background-color: var(--color-white);
+}
+
+.homepage-header > a img {
+  object-fit: contain;
+  width: 35px;
+}
+
+.homepage-header > a p {
+  font-size: var(--font-size-m);
 }
 
 /* 
@@ -213,7 +233,7 @@ header {
 .homepage-register form {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
 }
 
 .homepage-register form > div {
@@ -278,13 +298,17 @@ header {
   border-collapse: collapse;
 }
 
+.homepage-table table tr:nth-child(odd) {
+  background-color: var(--color-white);
+}
+
 .homepage-table table tr:nth-child(even) {
-  background-color: #c0c0c0;
+  background-color: #e2e2e2;
 }
 
 .homepage-table table td,
 .homepage-table table th {
-  border: 1px solid var(--color-very-dark-blue);
+  border: 1px solid transparent;
   padding: 1rem;
 }
 
@@ -294,7 +318,15 @@ header {
   color: var(--color-white);
 }
 
+.homepage-table table tr td:nth-child(3) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-color: transparent;
+}
+
 .homepage-table button {
+  margin: 0.2rem;
   padding: 0.7rem 1.5rem;
   font-size: var(--font-size-body);
   cursor: pointer;
