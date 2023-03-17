@@ -14,12 +14,16 @@
 
     <link rel="stylesheet" href="/style.css" />
 
-    <title>RONDO | Homepage</title>
+    <title>RONDO | Dashboard</title>
   </head>
   <body>
     <header class="homepage-header">
       <img class="logo" src="/assets/logo.png" alt="rondo logo" />
-      <p id="header-welcome"></p>
+      <p id="header-welcome" class="text-center"></p>
+      <a id="user-logout" href="/index.html">
+        <img src="/assets/icon-account.png" alt="icon log out">
+        <p>Log Out</p>
+      </a>
     </header>
 
     <section class="homepage-register">
@@ -75,6 +79,6 @@
       </div>
     </section>
 
-    <script defer type="module" src="/homepage/homepage.js"></script>
+    <script defer type="module" src="/dashboard/dashboard.js"></script>
   </body>
 </html>

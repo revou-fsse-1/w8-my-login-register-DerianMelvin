@@ -9,8 +9,19 @@ import {
 let usernameValid = false;
 let emailValid = false;
 
+const userLogOut = document.getElementById("user-logout");
+
+// Stores data from local storage
 const userList = [];
+
+// get current logged in user from local storage
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+/* 
+  -----------------------------------------------------------------------------
+    FUNCTIONS
+  -----------------------------------------------------------------------------
+*/
 
 const displaySubmitError = () => {
   if (!usernameValid) {
@@ -33,6 +44,7 @@ const setRegisterSuccess = (elementId, message) => {
   selectedElement.classList.remove("error");
 };
 
+// Display each data by adding HTML as table row
 const displayData = (data) => {
   const tableBody = document.querySelector("tbody");
   tableBody.innerHTML = "";
@@ -42,22 +54,64 @@ const displayData = (data) => {
       <td>${data[i].username}</td>
       <td>${data[i].email}</td>
       <td>
-        <button id="edit-${data[i].username}" class="edit" type='button' onclick="editUser(${i})">Edit</button>
-        <button id="delete-${data[i].username}" class="delete" type='button' onclick="deleteUser(${i})">Delete</button>
+        <button id="edit-${data[i].username}" class="edit" type="button">Edit</button>
+        <button id="delete-${data[i].username}" class="delete" type="button">Delete</button>
       </td>
     </tr>
     `;
     tableBody.innerHTML += row;
   }
+
+  // Add event listeners to each edit & delete buttons
+  for (let i = 0; i < data.length; i++) {
+    const editData = document.getElementById(`edit-${data[i].username}`);
+    const deleteData = document.getElementById(`delete-${data[i].username}`);
+
+    editData.addEventListener("click", editUser(i));
+    deleteData.addEventListener("click", deleteUser(i));
+  }
 };
 
+const editUser = (index) => {
+  return () => {
+    const editName = prompt("Username:", userList[index].username);
+    const editEmail = prompt("Email:", userList[index].email);
+    userList[index] = { username: editName, email: editEmail };
+    localStorage.setItem(
+      `dataList-${currentUser.email}`,
+      JSON.stringify(userList)
+    );
+    displayData(userList);
+  };
+};
+
+const deleteUser = (index) => {
+  return () => {
+    userList.splice(index, 1);
+    localStorage.setItem(
+      `dataList-${currentUser.email}`,
+      JSON.stringify(userList)
+    );
+    displayData(userList);
+  };
+};
+
+/* 
+  -----------------------------------------------------------------------------
+    EVENT LISTENERS
+  -----------------------------------------------------------------------------
+*/
+
 window.onload = () => {
+  // Set welcome text with current username
   headerWelcome.innerHTML = `Welcome, ${currentUser.username}!`;
 
+  // Get local storage data of currently logged in user
   const getUserList = JSON.parse(
     localStorage.getItem(`dataList-${currentUser.email}`)
   );
 
+  // Use current user as initial data if local storage doesn't exist
   if (getUserList === null) {
     userList.push(currentUser);
     localStorage.setItem(
@@ -66,6 +120,7 @@ window.onload = () => {
     );
     displayData(userList);
   } else {
+    // Checks if local storage data is an array or not
     if (!Array.isArray(getUserList)) {
       userList.push(getUserList);
       displayData(userList);
@@ -118,28 +173,37 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   if (usernameValid && emailValid) {
+    // Add inputed values into userList as object
     userList.push({
       username: username.value,
       email: email.value,
     });
 
+    // Update local storage with current userList data
     localStorage.setItem(
       `dataList-${currentUser.email}`,
       JSON.stringify(userList)
     );
     displayData(userList);
 
-    setRegisterSuccess("display-register", "Account registered successfully");
+    // Reset input values
+    username.value = username.defaultValue;
+    email.value = email.defaultValue;
+
+    setRegisterSuccess("display-register", "Account added successfully");
     setTimeout(() => {
       setSuccess("display-register");
-    }, 1500);
+    }, 1800);
   } else {
-    setError("display-register", "Invalid input");
-
+    setError("display-register", "Invalid data");
     setTimeout(() => {
       setSuccess("display-register");
     }, 1000);
-
     displaySubmitError();
   }
+});
+
+// Removes data of current user when logged out
+userLogOut.addEventListener("click", () => {
+  localStorage.removeItem("currentUser");
 });

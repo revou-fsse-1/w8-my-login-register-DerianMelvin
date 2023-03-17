@@ -17,6 +17,12 @@ let emailValid = false;
 let passwordValid = false;
 let confirmPasswordValid = false;
 
+/* 
+  -----------------------------------------------------------------------------
+    FUNCTIONS
+  -----------------------------------------------------------------------------
+*/
+
 const displaySubmitError = () => {
   if (!usernameValid) {
     setError("display-username", "Invalid Username");
@@ -38,6 +44,12 @@ const displaySubmitError = () => {
     changeInputBackgroundVisual(confirmPassword, confirmPasswordValid);
   }
 };
+
+/* 
+  -----------------------------------------------------------------------------
+    EVENT LISTENERS
+  -----------------------------------------------------------------------------
+*/
 
 username.addEventListener("input", () => {
   const value = username.value;
@@ -134,9 +146,7 @@ form.addEventListener("submit", (e) => {
         password: password.value,
       })
     );
-
     alert("Account successfully created");
-
     window.location.href = "/index.html";
   } else {
     displaySubmitError();

@@ -9,6 +9,12 @@ import {
 let emailValid = false;
 let passwordValid = false;
 
+/* 
+  -----------------------------------------------------------------------------
+    FUNCTIONS
+  -----------------------------------------------------------------------------
+*/
+
 const displaySubmitError = () => {
   if (!emailValid) {
     setError("display-email", "Invalid Email");
@@ -20,6 +26,12 @@ const displaySubmitError = () => {
     changeInputBackgroundVisual(password, passwordValid);
   }
 };
+
+/* 
+  -----------------------------------------------------------------------------
+    EVENT LISTENERS
+  -----------------------------------------------------------------------------
+*/
 
 email.addEventListener("input", () => {
   const value = email.value;
@@ -69,7 +81,7 @@ form.addEventListener("submit", (e) => {
         localStorage.setItem("currentUser", JSON.stringify(userData));
         setSuccess("display-signin");
         alert("Log In Successful");
-        window.location.href = "/homepage/index.html";
+        window.location.href = "/dashboard/index.html";
       } else {
         setError("display-signin", "Incorrect email / password");
       }
