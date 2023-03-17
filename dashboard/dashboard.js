@@ -14,7 +14,7 @@ const userLogOut = document.getElementById("user-logout");
 // Stores data from local storage
 const userList = [];
 
-// get current logged in user from local storage
+// get currently logged in user from local storage
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
 /* 
@@ -137,7 +137,7 @@ username.addEventListener("input", () => {
   const value = username.value;
 
   if (value === "") {
-    setError("display-username", "username is required");
+    setError("display-username", "Username is required");
     usernameValid = false;
     changeInputBackgroundVisual(username, usernameValid);
   } else if (value.length < 3) {

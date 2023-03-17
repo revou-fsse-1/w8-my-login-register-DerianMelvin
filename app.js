@@ -73,6 +73,9 @@ form.addEventListener("submit", (e) => {
   if (emailValid && passwordValid) {
     if (userData === null) {
       setError("display-signin", "Account doesn't exist");
+      setTimeout(() => {
+        setSuccess("display-signin");
+      }, 1800);
     } else {
       if (
         email.value === userData.email &&
@@ -83,7 +86,10 @@ form.addEventListener("submit", (e) => {
         alert("Log In Successful");
         window.location.href = "/dashboard/index.html";
       } else {
-        setError("display-signin", "Incorrect email / password");
+        setError("display-signin", "Incorrect password");
+        setTimeout(() => {
+          setSuccess("display-signin");
+        }, 1800);
       }
     }
   } else {
